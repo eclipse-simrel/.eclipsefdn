@@ -3,7 +3,7 @@ local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 orgs.newOrg('eclipse-simrel') {
   settings+: {
     blog: "https://ci.eclipse.org/simrel",
-    default_repository_permission: 'none',
+    default_repository_permission: "none",
     dependabot_security_updates_enabled_for_new_repositories: false,
     description: "SimRel provides infrastructure for coordinating the release of projects used to build Eclipse IDE/RCP applications.",
     email: "cross-project-issues-dev@eclipse.org",
@@ -27,6 +27,20 @@ orgs.newOrg('eclipse-simrel') {
     },
   ],
   _repositories+:: [
+    orgs.newRepo('.github') {
+      allow_update_branch: false,
+      web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          bypass_pull_request_allowances+: [
+            "@fredg02",
+            "@merks"
+          ],
+          required_approving_review_count: 0,
+          requires_status_checks: false,
+        },
+      ],
+    },
     orgs.newRepo('simrel.build') {
       allow_merge_commit: false,
       allow_update_branch: false,
@@ -40,7 +54,6 @@ orgs.newOrg('eclipse-simrel') {
           ],
           required_approving_review_count: 0,
           requires_status_checks: false,
-          requires_strict_status_checks: true,
         },
       ],
     },
@@ -57,7 +70,6 @@ orgs.newOrg('eclipse-simrel') {
           ],
           required_approving_review_count: 0,
           requires_status_checks: false,
-          requires_strict_status_checks: true,
         },
       ],
     },
