@@ -25,6 +25,20 @@ orgs.newOrg('eclipse-simrel') {
     },
   ],
   _repositories+:: [
+    orgs.newRepo('.github') {
+      allow_update_branch: false,
+      web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          bypass_pull_request_allowances+: [
+            "@fredg02",
+            "@merks"
+          ],
+          required_approving_review_count: 0,
+          requires_status_checks: false,
+        },
+      ],
+    },
     orgs.newRepo('simrel.build') {
       allow_update_branch: false,
       web_commit_signoff_required: false,
@@ -36,7 +50,6 @@ orgs.newOrg('eclipse-simrel') {
           ],
           required_approving_review_count: 0,
           requires_status_checks: false,
-          requires_strict_status_checks: true,
         },
       ],
     },
@@ -51,7 +64,6 @@ orgs.newOrg('eclipse-simrel') {
           ],
           required_approving_review_count: 0,
           requires_status_checks: false,
-          requires_strict_status_checks: true,
         },
       ],
     },
