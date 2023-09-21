@@ -2,7 +2,7 @@ local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
 orgs.newOrg('eclipse-simrel') {
   settings+: {
-    default_repository_permission: 'none',
+    default_repository_permission: "none",
     dependabot_security_updates_enabled_for_new_repositories: false,
     description: "SimRel provides infrastructure for coordinating the release of projects used to build Eclipse IDE/RCP applications.",
     members_can_change_project_visibility: false,
