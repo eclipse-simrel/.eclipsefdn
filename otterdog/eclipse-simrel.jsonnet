@@ -30,6 +30,7 @@ orgs.newOrg('eclipse-simrel') {
   _repositories+:: [
     orgs.newRepo('.github') {
       allow_update_branch: false,
+      description: "Global configurations for the eclipse-simrel GitHub organization.",
       web_commit_signoff_required: false,
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
