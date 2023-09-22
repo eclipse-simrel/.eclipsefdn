@@ -8,6 +8,7 @@ orgs.newOrg('eclipse-simrel') {
     description: "SimRel provides infrastructure for coordinating the release of projects used to build Eclipse IDE/RCP applications.",
     discussion_source_repository: "eclipse-simrel/simrel.build",
     email: "cross-project-issues-dev@eclipse.org",
+    has_discussions: true,
     members_can_change_project_visibility: false,
     name: "Eclipse Simultaneous Release",
     packages_containers_internal: false,
