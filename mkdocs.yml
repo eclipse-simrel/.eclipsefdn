@@ -1,6 +1,6 @@
 site_name: Otterdog configuration @ eclipse-simrel
 site_description: Otterdog configuration @ eclipse-simrel
-strict: true
+strict: false
 
 site_url: https://eclipse-simrel.github.io/.eclipsefdn/
 
