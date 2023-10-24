@@ -3,7 +3,6 @@ local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 orgs.newOrg('eclipse-simrel') {
   settings+: {
     blog: "https://ci.eclipse.org/simrel",
-    default_repository_permission: "none",
     dependabot_security_updates_enabled_for_new_repositories: false,
     description: "SimRel provides infrastructure for coordinating the release of projects used to build Eclipse IDE/RCP applications.",
     discussion_source_repository: "eclipse-simrel/simrel.build",
@@ -35,6 +34,9 @@ orgs.newOrg('eclipse-simrel') {
       delete_branch_on_merge: false,
       description: "Global configurations for the eclipse-simrel GitHub organization.",
       web_commit_signoff_required: false,
+      workflows+: {
+        actions_can_approve_pull_request_reviews: false,
+      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
           bypass_pull_request_allowances+: [
@@ -60,6 +62,9 @@ orgs.newOrg('eclipse-simrel') {
         "help"
       ],
       web_commit_signoff_required: false,
+      workflows+: {
+        actions_can_approve_pull_request_reviews: false,
+      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
           bypass_pull_request_allowances+: [
@@ -78,6 +83,9 @@ orgs.newOrg('eclipse-simrel') {
       description: "The aggregation model and build infrastructure.",
       has_discussions: true,
       web_commit_signoff_required: false,
+      workflows+: {
+        actions_can_approve_pull_request_reviews: false,
+      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
           bypass_pull_request_allowances+: [
@@ -95,6 +103,9 @@ orgs.newOrg('eclipse-simrel') {
       delete_branch_on_merge: false,
       description: "Utilities and tools for maintenance.",
       web_commit_signoff_required: false,
+      workflows+: {
+        enabled: false,
+      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
           bypass_pull_request_allowances+: [
