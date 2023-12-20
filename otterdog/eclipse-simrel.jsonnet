@@ -8,7 +8,6 @@ orgs.newOrg('eclipse-simrel') {
     discussion_source_repository: "eclipse-simrel/simrel.build",
     email: "cross-project-issues-dev@eclipse.org",
     has_discussions: true,
-    members_can_change_project_visibility: false,
     name: "Eclipse Simultaneous Release",
     packages_containers_internal: false,
     packages_containers_public: false,
