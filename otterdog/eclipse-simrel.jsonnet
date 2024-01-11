@@ -33,9 +33,6 @@ orgs.newOrg('eclipse-simrel') {
       delete_branch_on_merge: false,
       description: "Global configurations for the eclipse-simrel GitHub organization.",
       web_commit_signoff_required: false,
-      workflows+: {
-        actions_can_approve_pull_request_reviews: false,
-      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
           bypass_pull_request_allowances+: [
@@ -61,9 +58,6 @@ orgs.newOrg('eclipse-simrel') {
         "help"
       ],
       web_commit_signoff_required: false,
-      workflows+: {
-        actions_can_approve_pull_request_reviews: false,
-      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
           bypass_pull_request_allowances+: [
@@ -77,25 +71,31 @@ orgs.newOrg('eclipse-simrel') {
       ],
     },
     orgs.newRepo('simrel.build') {
+      allow_auto_merge: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
       description: "The aggregation model and build infrastructure.",
       has_discussions: true,
       web_commit_signoff_required: false,
-      workflows+: {
-        actions_can_approve_pull_request_reviews: false,
-      },
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          bypass_pull_request_allowances+: [
-            "@fredg02",
-            "@merks"
+      rulesets: [
+        orgs.newRepoRuleset('main') {
+          allows_updates: true,
+          bypass_actors+: [
+            "@eclipse-simrel/technology-simrel-release-managers"
+          ],
+          include_refs+: [
+            "refs/heads/main",
           ],
           required_approving_review_count: 0,
-          requires_status_checks: false,
-          requires_strict_status_checks: true,
+          required_status_checks+: [
+            "continuous-integration/jenkins/pr-head"
+          ],
+          requires_commit_signatures: false,
+          requires_last_push_approval: false,
+          requires_review_thread_resolution: false,
         },
       ],
+      
     },
     orgs.newRepo('simrel.tools') {
       allow_update_branch: false,
