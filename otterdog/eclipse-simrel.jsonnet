@@ -73,7 +73,7 @@ orgs.newOrg('eclipse-simrel') {
     orgs.newRepo('simrel.build') {
       allow_auto_merge: true,
       allow_update_branch: false,
-      delete_branch_on_merge: false,
+      delete_branch_on_merge: true,
       description: "The aggregation model and build infrastructure.",
       has_discussions: true,
       web_commit_signoff_required: false,
@@ -95,7 +95,6 @@ orgs.newOrg('eclipse-simrel') {
           requires_review_thread_resolution: false,
         },
       ],
-      
     },
     orgs.newRepo('simrel.tools') {
       allow_update_branch: false,
