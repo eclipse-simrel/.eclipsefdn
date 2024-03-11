@@ -71,7 +71,6 @@ orgs.newOrg('eclipse-simrel') {
     orgs.newRepo('simrel.build') {
       allow_auto_merge: true,
       allow_update_branch: false,
-      delete_branch_on_merge: true,
       description: "The aggregation model and build infrastructure.",
       has_discussions: true,
       web_commit_signoff_required: false,
@@ -82,7 +81,7 @@ orgs.newOrg('eclipse-simrel') {
             "@eclipse-simrel/technology-simrel-release-managers"
           ],
           include_refs+: [
-            "refs/heads/main",
+            "refs/heads/main"
           ],
           required_approving_review_count: 0,
           required_status_checks+: [
