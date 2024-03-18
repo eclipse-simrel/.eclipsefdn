@@ -2,4 +2,4 @@
 *             @eclipse-simrel/eclipsefdn-releng
 
 # Otterdog related configurations are also owned by the security team.
-/otterdog/**  @eclipse-simrel/eclipsefdn-security @eclipse-simrel/eclipsefdn-releng
+/otterdog/**  @eclipse-simrel/eclipsefdn-security
