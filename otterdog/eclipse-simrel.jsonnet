@@ -9,7 +9,6 @@ orgs.newOrg('eclipse-simrel') {
     email: "cross-project-issues-dev@eclipse.org",
     has_discussions: true,
     name: "Eclipse Simultaneous Release",
-    readers_can_create_discussions: true,
     web_commit_signoff_required: false,
     workflows+: {
       actions_can_approve_pull_request_reviews: false,
