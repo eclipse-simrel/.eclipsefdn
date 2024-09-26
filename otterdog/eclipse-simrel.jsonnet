@@ -74,20 +74,19 @@ orgs.newOrg('eclipse-simrel') {
       web_commit_signoff_required: false,
       rulesets: [
         orgs.newRepoRuleset('main') {
-          allows_updates: true,
           bypass_actors+: [
             "@eclipse-simrel/technology-simrel-release-managers"
           ],
           include_refs+: [
             "refs/heads/main"
           ],
-          required_approving_review_count: 0,
+          required_pull_request+: {
+            required_approving_review_count: 0,
+            dismisses_stale_reviews: true,
+          },
           required_status_checks+: [
             "continuous-integration/jenkins/pr-head"
           ],
-          requires_commit_signatures: false,
-          requires_last_push_approval: false,
-          requires_review_thread_resolution: false,
         },
       ],
     },
