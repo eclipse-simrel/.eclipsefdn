@@ -1,6 +1,6 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
-orgs.newOrg('eclipse-simrel') {
+orgs.newOrg('technology.simrel', 'eclipse-simrel') {
   settings+: {
     blog: "https://ci.eclipse.org/simrel",
     description: "SimRel provides infrastructure for coordinating the release of projects used to build Eclipse IDE/RCP applications.",
