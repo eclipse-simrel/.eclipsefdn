@@ -13,6 +13,14 @@ orgs.newOrg('technology.simrel', 'eclipse-simrel') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
+  teams+: [
+    orgs.newTeam('technology-simrel-release-managers') {
+      members+: [
+        "fredg02",
+        "merks"
+      ],
+    },
+  ],
   webhooks+: [
     orgs.newOrgWebhook('https://ci.eclipse.org/simrel/github-webhook/') {
       content_type: "json",
@@ -81,8 +89,8 @@ orgs.newOrg('technology.simrel', 'eclipse-simrel') {
             "refs/heads/main"
           ],
           required_pull_request+: {
-            required_approving_review_count: 0,
             dismisses_stale_reviews: true,
+            required_approving_review_count: 0,
           },
           required_status_checks+: {
             status_checks+: [
