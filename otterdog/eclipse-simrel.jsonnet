@@ -120,5 +120,22 @@ orgs.newOrg('technology.simrel', 'eclipse-simrel') {
         },
       ],
     },
+    orgs.newRepo('simrel-website') {
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "The project website.",
+      web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          bypass_pull_request_allowances+: [
+            "@fredg02",
+            "@merks"
+          ],
+          required_approving_review_count: 0,
+          requires_status_checks: false,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
   ],
 }
